@@ -1,0 +1,8 @@
+@charset "UTF-8";
+
+/// 设置元素盒模型，默认为border-box
+/// @param {String} $type [border-box] - 类型
+@mixin m-box-sizing($type: border-box){
+  box-sizing: $type;
+  -webkit-box-sizing: $type;
+}

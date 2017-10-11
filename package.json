@@ -1,0 +1,58 @@
+{
+  "name": "generator-flash",
+  "version": "0.0.1",
+  "description": "react dev prod and so on",
+  "authors": [
+    {
+      "name": "David Feng",
+      "email": "946401639@qq.com",
+      "url": ""
+    }],
+  "files": [
+    "app", "component", "project", "_libs"
+  ],
+  "main": "app/index.js",
+  "keywords": [
+    "yeoman generator webpack node ",
+    "yeoman-generator"
+  ],
+  "devDependencies": {
+    "yeoman-test": "^1.6.0",
+    "yeoman-assert": "^3.0.0",
+    "coveralls": "^2.13.1",
+    "nsp": "^2.6.3",
+    "eslint": "^4.1.0",
+    "eslint-config-xo-space": "^0.16.0",
+    "jest": "^19.0.2",
+    "jest-cli": "^20.0.0"
+  },
+  "dependencies": {
+    "colors": "^1.1.2",
+    "inquirer": "^3.2.2",
+    "mkdirp": "^0.5.1",
+    "npm-updater": "^3.0.3",
+    "shelljs": "^0.7.8",
+    "yeoman-generator": "^1.0.0"
+  },
+  "jest": {
+    "testEnvironment": "node"
+  },
+  "scripts": {
+    "prepublish": "nsp check",
+    "pretest": "eslint . --fix",
+    "test": "jest"
+  },
+  "eslintConfig": {
+    "extends": "xo-space",
+    "env": {
+      "jest": true,
+      "node": true
+    }
+  },
+  "repository": "git@github.com:water-wheel/generator-flash.git",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/water-wheel/generator-flash/issues"
+  },
+  "homepage": "https://github.com/water-wheel/generator-flash#readme"
+}

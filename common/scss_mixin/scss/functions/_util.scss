@@ -1,0 +1,74 @@
+@charset "UTF-8";
+
+/// Slightly lighten a color
+/// @group functions
+/// @access public
+/// @param {Color} $color - color to tint
+/// @param {Number} $percentage - percentage of `$color` in returned color
+/// @return {Color}
+@function tint($color, $percentage) {
+    @return mix(white, $color, $percentage);
+}
+
+/// Slightly darken a color
+/// @access public
+/// @group functions
+/// @param {Color} $color - color to shade
+/// @param {Number} $percentage - percentage of `$color` in returned color
+/// @return {Color}
+@function shade($color, $percentage) {
+    @return mix(black, $color, $percentage);
+}
+
+/// 字符串替换
+/// @access public
+/// @group functions
+/// @param {String} $string - 要处理的字符串
+/// @param {String} $search - 匹配字符
+/// @param {String} $replace ['']  - 替换字符
+/// @return {String}
+@function str-replace($string, $search, $replace: '') {
+    $index: str-index($string, $search);
+    @if $index {
+        @return str-slice($string, 1, $index - 1) + $replace + str-replace(str-slice($string, $index + str-length($search)), $search, $replace);
+    }
+    @return $string;
+}
+
+/// 字符串url编码
+/// @access public
+/// @group functions
+/// @param {String} $string - 要编码的字符串
+/// @return {String}
+@function url-encode($string) {
+    $map: (
+        "%": "%25",
+        "<": "%3C",
+        ">": "%3E",
+        " ": "%20",
+        "!": "%21",
+        "*": "%2A",
+        "'": "%27",
+        '"': "%22",
+        "(": "%28",
+        ")": "%29",
+        ";": "%3B",
+        ":": "%3A",
+        "@": "%40",
+        "&": "%26",
+        "=": "%3D",
+        "+": "%2B",
+        "$": "%24",
+        ",": "%2C",
+        "/": "%2F",
+        "?": "%3F",
+        "#": "%23",
+        "[": "%5B",
+        "]": "%5D"
+    );
+    $new: $string;
+    @each $search, $replace in $map {
+        $new: str-replace($new, $search, $replace);
+    }
+    @return $new;
+}

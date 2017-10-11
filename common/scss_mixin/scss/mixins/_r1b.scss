@@ -1,0 +1,293 @@
+@charset "UTF-8";
+
+/// 通过before，after实现的1px边框-4个边
+/// @param {Color} $color [#D5D5D5] - 色值
+@mixin m-r1b($color:#D5D5D5, $radius:0){
+  position:relative;
+  &::after {
+    position: absolute;
+    content: "";
+    top: 0;
+    left: 0;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    border: 1px solid $color;
+    pointer-events:none;
+    -webkit-transform-origin: 0 0;
+    transform-origin: 0 0;
+    @if $radius!=0{
+      border-radius: $radius;
+      -webkit-border-radius: $radius;
+    }
+  }
+  @media (-webkit-min-device-pixel-ratio: 1.5), (min-device-pixel-ratio: 1.5), (min-resolution: 144dpi), (min-resolution: 1.5dppx) {
+    &::after{
+      width: 200%;
+      height: 200%;
+      -webkit-transform: scale(.5);
+      transform: scale(.5);
+    }
+  }
+  @media (-webkit-device-pixel-ratio: 1.5) {
+    &::after {
+      width: 150%;
+      height: 150%;
+      -webkit-transform: scale(.6666);
+      transform: scale(.6666);
+    }
+  }
+  @media (-webkit-device-pixel-ratio: 3) {
+    &::after {
+      width: 300%;
+      height: 300%;
+      -webkit-transform: scale(.3333);
+      transform: scale(.3333);
+    }
+  }
+}
+
+/// 通过before，after实现的1px边框-左边
+/// @param {Color} $color [#D5D5D5] - 色值
+@mixin m-r1bl($color:#D5D5D5){
+  position:relative;
+  &::before {
+    pointer-events:none;
+    position: absolute;
+    content: "";
+    width: 1px;
+    background: $color;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    -webkit-transform-origin: 0 0;
+    transform-origin: 0 0;
+  }
+  @media (-webkit-min-device-pixel-ratio: 1.5), (min-device-pixel-ratio: 1.5), (min-resolution: 144dpi), (min-resolution: 1.5dppx) {
+    &::before{
+      -webkit-transform: scaleX(.5);
+      transform: scaleX(.5);
+    }
+  }
+  @media (-webkit-device-pixel-ratio: 1.5) {
+    &::before {
+      -webkit-transform: scaleX(.6666);
+      transform: scaleX(.6666);
+    }
+  }
+  @media (-webkit-device-pixel-ratio: 3) {
+    &::before {
+      -webkit-transform: scaleX(.3333);
+      transform: scaleX(.3333);
+    }
+  }
+}
+
+
+/// 通过before，after实现的1px边框-右边
+/// @param {Color} $color [#D5D5D5] - 色值
+@mixin m-r1br($color:#D5D5D5){
+  position:relative;
+  &::after {
+    pointer-events:none;
+    position: absolute;
+    content: "";
+    width: 1px;
+    background: $color;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    -webkit-transform-origin: 100% 0;
+    transform-origin: 100% 0;
+  }
+  @media (-webkit-min-device-pixel-ratio: 1.5), (min-device-pixel-ratio: 1.5), (min-resolution: 144dpi), (min-resolution: 1.5dppx) {
+    &::after{
+      -webkit-transform: scaleX(.5);
+      transform: scaleX(.5);
+    }
+  }
+  @media (-webkit-device-pixel-ratio: 1.5) {
+    &::after {
+      -webkit-transform: scaleX(.6666);
+      transform: scaleX(.6666);
+    }
+  }
+  @media (-webkit-device-pixel-ratio: 3) {
+    &::after {
+      -webkit-transform: scaleX(.3333);
+      transform: scaleX(.3333);
+    }
+  }
+}
+
+
+/// 通过before，after实现的1px边框-上边
+/// @param {Color} $color [#D5D5D5] - 色值
+@mixin m-r1bt($color:#D5D5D5){
+  position:relative;
+  &::before {
+    pointer-events:none;
+    position: absolute;
+    content: "";
+    height: 1px;
+    background: $color;
+    left: 0;
+    right: 0;
+    top:0;
+    -webkit-transform-origin: 0 0;
+    transform-origin: 0 0;
+  }
+  @media (-webkit-min-device-pixel-ratio: 1.5), (min-device-pixel-ratio: 1.5), (min-resolution: 144dpi), (min-resolution: 1.5dppx) {
+    &::before{
+      -webkit-transform: scaleY(.5);
+      transform: scaleY(.5);
+    }
+  }
+  @media (-webkit-device-pixel-ratio: 1.5) {
+    &::before {
+      -webkit-transform: scaleY(.6666);
+      transform: scaleY(.6666);
+    }
+  }
+  @media (-webkit-device-pixel-ratio: 3) {
+    &::before {
+      -webkit-transform: scaleY(.3333);
+      transform: scaleY(.3333);
+    }
+  }
+}
+
+
+/// 通过before，after实现的1px边框-下边
+/// @param {Color} $color [#D5D5D5] - 色值
+@mixin m-r1bb($color:#D5D5D5){
+  position:relative;
+  &::after {
+    pointer-events:none;
+    position: absolute;
+    content: "";
+    height: 1px;
+    background: $color;
+    left: 0;
+    right: 0;
+    bottom:0;
+    -webkit-transform-origin: 100% 100%;
+    transform-origin: 100% 100%;
+  }
+  @media (-webkit-min-device-pixel-ratio: 1.5), (min-device-pixel-ratio: 1.5), (min-resolution: 144dpi), (min-resolution: 1.5dppx) {
+    &::after{
+      -webkit-transform: scaleY(.5);
+      transform: scaleY(.5);
+    }
+  }
+  @media (-webkit-device-pixel-ratio: 1.5) {
+    &::after {
+      -webkit-transform: scaleY(.6666);
+      transform: scaleY(.6666);
+    }
+  }
+  @media (-webkit-device-pixel-ratio: 3) {
+    &::after {
+      -webkit-transform: scaleY(.3333);
+      transform: scaleY(.3333);
+    }
+  }
+}
+
+/// 通过before，after实现的1px边框- 上右下左四个边颜色配置
+/// @param {tColor} $color [#D5D5D5] - 上边色值
+/// @param {rColor} $color [#D5D5D5] - 右边色值
+/// @param {bColor} $color [#D5D5D5] - 下边色值
+/// @param {lColor} $color [#D5D5D5] - 左边色值
+@mixin m-r1b-trbl($tColor:#D5D5D5, $rColor:#D5D5D5, $bColor:#D5D5D5, $lColor:#D5D5D5, $radius:0){
+  position:relative;
+  &::after {
+    position: absolute;
+    content: "";
+    top: 0;
+    left: 0;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    border-style: solid;
+    border-width: 1px;
+    border-color: $tColor $rColor $bColor $lColor;
+    pointer-events:none;
+    -webkit-transform-origin: 0 0;
+    transform-origin: 0 0;
+    @if $radius!=0{
+      border-radius: $radius;
+      -webkit-border-radius: $radius;
+    }
+  }
+  @media (-webkit-min-device-pixel-ratio: 1.5), (min-device-pixel-ratio: 1.5), (min-resolution: 144dpi), (min-resolution: 1.5dppx) {
+    &::after{
+      width: 200%;
+      height: 200%;
+      -webkit-transform: scale(.5);
+      transform: scale(.5);
+    }
+  }
+  @media (-webkit-device-pixel-ratio: 1.5) {
+    &::after {
+      width: 150%;
+      height: 150%;
+      -webkit-transform: scale(.6666);
+      transform: scale(.6666);
+    }
+  }
+  @media (-webkit-device-pixel-ratio: 3) {
+    &::after {
+      width: 300%;
+      height: 300%;
+      -webkit-transform: scale(.3333);
+      transform: scale(.3333);
+    }
+  }
+}
+
+/// 通过background-image实现的1px边框-上边
+/// @param {Color} $color [#D5D5D5] - 边框颜色
+/// @param {Color} $bgColor [透明] - 背景颜色
+@mixin m-r1bt-bg($color:#D5D5D5, $bgColor:transparent){
+  background:$bgColor -webkit-linear-gradient(top, $color, $color 50%, transparent 50%, transparent 100%) left top no-repeat;
+  -webkit-background-size: 100% 1px;
+}
+
+/// 通过background-image实现的1px边框-下边
+/// @param {Color} $color [#D5D5D5] - 边框颜色
+/// @param {Color} $bgColor [透明] - 背景颜色
+@mixin m-r1bb-bg($color:#D5D5D5, $bgColor:transparent){
+  background:$bgColor -webkit-linear-gradient(bottom, $color, $color 50%, transparent 50%, transparent 100%) left bottom no-repeat;
+  -webkit-background-size: 100% 1px;
+}
+
+/// 通过background-image实现的1px边框-左边
+/// @param {Color} $color [#D5D5D5] - 边框颜色
+/// @param {Color} $bgColor [透明] - 背景颜色
+@mixin m-r1bl-bg($color:#D5D5D5, $bgColor:transparent){
+  background:$bgColor -webkit-linear-gradient(left, $color, $color 50%, transparent 50%, transparent 100%) left top no-repeat;
+  -webkit-background-size: 1px 100%;
+}
+
+/// 通过background-image实现的1px边框-右边
+/// @param {Color} $color [#D5D5D5] - 边框颜色
+/// @param {Color} $bgColor [透明] - 背景颜色
+@mixin m-r1br-bg($color:#D5D5D5, $bgColor:transparent){
+  background:$bgColor -webkit-linear-gradient(right, $color, $color 50%, transparent 50%, transparent 100%) right top no-repeat;
+  -webkit-background-size: 1px 100%;
+}
+
+/// 通过background-image实现的1px边框-4边
+/// @param {Color} $color [#D5D5D5] - 边框颜色
+/// @param {Color} $bgColor [透明] - 背景颜色
+@mixin m-r1b-bg($color:#D5D5D5, $bgColor:transparent){
+  background-color:$bgColor;
+  background-image: -webkit-linear-gradient(top, $color, $color 50%, transparent 50%, transparent 100%), -webkit-linear-gradient(right, $color, $color 50%, transparent 50%, transparent 100%), -webkit-linear-gradient(bottom, $color, $color 50%, transparent 50%, transparent 100%), -webkit-linear-gradient(left, $color, $color 50%, transparent 50%, transparent 100%);
+  background-size: 100% 1px, 1px 100%;
+  background-repeat: no-repeat;
+  background-position: top, right top, bottom, left top;
+}
+

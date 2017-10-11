@@ -1,0 +1,55 @@
+@charset "UTF-8";
+
+/// 设置圆角-4个角
+/// @param $radius - 弧度
+@mixin m-border-radius($radius){
+    @if length($radius) != 1 {
+        $i:1;
+        @each $position in (topleft, topright, bottomright, bottomright) {
+            -moz-border-radius-#{$position}:nth($radius, $i);
+            $i:$i+1;
+        }
+        -webkit-border-radius:nth($radius, 1) nth($radius, 2) nth($radius, 3) nth($radius, 4);
+        border-radius: nth($radius, 1) nth($radius, 2) nth($radius, 3) nth($radius, 4);
+    } @else {
+        -webkit-border-radius: $radius;
+        -moz-border-radius: $radius;
+        border-radius: $radius;
+    }
+}
+
+/// 设置圆角-上边2个角
+/// @param $radius - 弧度
+@mixin m-border-top-radius($radius) {
+  border-top-right-radius: $radius;
+  border-top-left-radius: $radius;
+  -webkit-border-top-right-radius: $radius;
+  -webkit-border-top-left-radius: $radius;
+}
+
+/// 设置圆角-右边2个个角
+/// @param $radius - 弧度
+@mixin m-border-right-radius($radius) {
+  border-bottom-right-radius: $radius;
+  border-top-right-radius: $radius;
+  -webkit-border-bottom-right-radius: $radius;
+  -webkit-border-top-right-radius: $radius;
+}
+
+/// 设置圆角-下边2个角
+/// @param $radius - 弧度
+@mixin m-border-bottom-radius($radius) {
+  border-bottom-right-radius: $radius;
+  border-bottom-left-radius: $radius;
+  -webkit-border-bottom-right-radius: $radius;
+  -webkit-border-bottom-left-radius: $radius;
+}
+
+/// 设置圆角-左边2个角
+/// @param $radius - 弧度
+@mixin m-border-left-radius($radius) {
+  border-bottom-left-radius: $radius;
+  border-top-left-radius: $radius;
+  -webkit-border-bottom-left-radius: $radius;
+  -webkit-border-top-left-radius: $radius;
+}

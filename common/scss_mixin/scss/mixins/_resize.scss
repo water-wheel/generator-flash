@@ -1,0 +1,8 @@
+@charset "UTF-8";
+
+/// 可调整大小
+/// @param $direction [vertical] - 大小调整方向，options: `horizontal`| `vertical`|`both`
+@mixin m-resizable($direction: vertical) {
+    resize: $direction;
+    overflow: auto; 
+}

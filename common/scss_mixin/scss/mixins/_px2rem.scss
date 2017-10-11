@@ -1,0 +1,29 @@
+/* rem famat */
+$m-root-font-size: 75 !default;
+
+@function parseInt($num) {
+    @return $num / ($num * 0 + 1);
+}
+
+@function px($value) {
+    @return #{$value/2}px;
+}
+
+@function rem($value){
+    @return #{$value/$m-root-font-size}rem;
+}
+
+@mixin fx($propertys: ()){
+    & {
+        @each $property, $value in $propertys {
+            #{$property}: rem($value);
+        }
+    }
+    @media (max-width : 374px) {
+        & {
+        @each $property, $value in $propertys {
+            #{$property}: #{$value/2}px;
+        }
+        }
+    }
+}

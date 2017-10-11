@@ -1,0 +1,9 @@
+@charset "UTF-8";
+
+/// 设置元素长宽尺寸
+/// @param $width - 宽度
+/// @param $height [$width] - 高度，如果长宽一样，只设置width即可
+@mixin m-size($width, $height: $width) {
+    width: $width;
+    height: $height;
+}

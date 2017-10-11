@@ -1,0 +1,44 @@
+@charset "UTF-8";
+
+//// 文字
+/// 单行文本截断
+/// @param $type - 截断类型
+@mixin m-truncation($type: ellipsis) {
+	overflow: hidden;
+	text-overflow: $type;
+    white-space: nowrap;
+}
+
+
+/// 多行文本截断(ellipsis)
+/// @param $lineCount - 行数
+@mixin m-line-clamp-ellipsis($lineCount: 3){
+	overflow : hidden;
+  	text-overflow: ellipsis;
+  	display: -webkit-box;
+    word-break: break-all;
+  	-webkit-line-clamp: $lineCount;
+  	-webkit-box-orient: vertical;
+}
+
+/// 多行文本截断(fade)
+/// @param $lineCount - 行数
+/// @param $lineHeight - 行高，经计算的行高
+/// @param $fadeWidth - 渐变的宽度
+/// @param {Color} $color [#fff] - 文字背景色
+@mixin m-line-clamp-fade($lineCount: 3, $lineHeight: 1.2em, $fadeWidth: 70%, $color: #fff){
+  	position: relative;
+  	height: $lineCount*$lineHeight;
+    overflow: hidden;
+    line-height: $lineHeight;
+	&:after {
+		content: "";
+  		text-align: right;
+  		position: absolute;
+  		bottom: 0;
+  		right: 0;
+  		width: $fadeWidth;
+  		height: $lineHeight;
+  		background: linear-gradient(to right, rgba( $color, 0 ), rgba($color, 1) 50%);
+	}
+}

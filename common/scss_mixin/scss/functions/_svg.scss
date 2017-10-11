@@ -1,0 +1,28 @@
+@charset "UTF-8";
+
+/// svg编码
+/// @access public
+/// @group functions
+/// @param {String} $string - 需要编译的svg字符串
+/// @return {String}
+@function inline-svg($string) {
+    @return url('data:image/svg+xml;charset=utf8,#{url-encode($string)}');
+}
+
+@function svg-url($svg){
+    $encoded:'';
+    $slice: 2000;
+    $index: 0;
+    $loops: ceil(str-length($svg)/$slice);
+    @for $i from 1 through $loops {
+        $chunk: str-slice($svg, $index, $index + $slice - 1); 
+        $chunk: str-replace($chunk,'"','\'');
+        $chunk: str-replace($chunk,'<','%3C');
+        $chunk: str-replace($chunk,'>','%3E');
+        $chunk: str-replace($chunk,'&','%26');
+        $chunk: str-replace($chunk,'#','%23');       
+        $encoded: #{$encoded}#{$chunk};
+        $index: $index + $slice; 
+    }
+    @return url("data:image/svg+xml;charset=utf8,#{$encoded}");   
+}

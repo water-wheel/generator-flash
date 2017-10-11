@@ -1,0 +1,76 @@
+@charset "UTF-8";
+
+//// Gradients
+
+/// 水平渐变
+/// @param {Color} $start-color [#555] - 开始颜色
+/// @param {Color} $end-color [#333] - 终止颜色
+/// @param {Percent} $start-percent [0%] - 起始百分比
+/// @param {Percent} $end-percent [100%] - 结束百分比
+/// @group gradient
+@mixin m-gradient-horizontal($start-color: #555, $end-color: #333, $start-percent: 0%, $end-percent: 100%) {
+    background-image: linear-gradient(to right, $start-color $start-percent, $end-color $end-percent);
+    background-repeat: repeat-x;
+}
+
+/// 垂直渐变
+/// @param {Color} $start-color [#555] - 开始颜色
+/// @param {Color} $end-color [#333] - 终止颜色
+/// @param {Percentage} $start-percent [0%] - 起始百分比
+/// @param {Percentage} $end-percent [100%] - 结束百分比
+/// @group gradient
+@mixin m-gradient-vertical($start-color: #555, $end-color: #333, $start-percent: 0%, $end-percent: 100%) {
+    background-image: linear-gradient(to bottom, $start-color $start-percent, $end-color $end-percent);
+    background-repeat: repeat-x;
+}
+
+/// 角度渐变
+/// @param {Color} $start-color [#555] - 开始颜色
+/// @param {Color} $end-color [#333] - 终止颜色
+/// @param {Degree} $deg [45deg] - 渐变旋转角度
+/// @param {Percentage} $start-percent [0%] - 起始百分比
+/// @param {Percentage} $end-percent [100%] - 结束百分比
+/// @group gradient
+@mixin m-gradient-directional($start-color: #555, $end-color: #333, $deg: 45deg, $start-percent: 0%, $end-percent: 100%) {
+    background-repeat: repeat-x;
+    background-image: linear-gradient($deg, $start-color $start-percent, $end-color $end-percent);
+}
+
+/// 三段水平颜色渐变
+/// @param {Color} $start-color [#00b3ee] - 开始颜色
+/// @param {Color} $mid-color [#7a43b6] - 中间色
+/// @param {Number} $color-stop [50%] - 中间色位置百分比
+/// @param {Color} $end-color [#c3325f] - 终止颜色
+/// @group gradient
+@mixin m-gradient-horizontal-three-colors($start-color: #00b3ee, $mid-color: #7a43b6, $color-stop: 50%, $end-color: #c3325f) {
+    background-image: linear-gradient(to right, $start-color, $mid-color $color-stop, $end-color);
+    background-repeat: no-repeat;
+}
+
+/// 三段垂直颜色渐变
+/// @param {Color} $start-color [#00b3ee] - 开始颜色
+/// @param {Color} $mid-color [#7a43b6] - 中间色
+/// @param {Percent} $color-stop [50%] - 中间色位置百分比
+/// @param {Color} $end-color [#c3325f] - 终止颜色
+/// @group gradient
+@mixin m-gradient-vertical-three-colors($start-color: #00b3ee, $mid-color: #7a43b6, $color-stop: 50%, $end-color: #c3325f) {
+    background-image: linear-gradient($start-color, $mid-color $color-stop, $end-color);
+    background-repeat: no-repeat;
+}
+
+/// 放射渐变
+/// @param {Color} $inner-color [#555] - 内部颜色
+/// @param {Color} $outer-color [#333] - 外部颜色
+/// @group gradient
+@mixin m-gradient-radial($inner-color: #555, $outer-color: #333) {
+    background-image: radial-gradient(circle, $inner-color, $outer-color);
+    background-repeat: no-repeat;
+}
+
+/// 条纹
+/// @param {Color} $color [rgba(255,255,255,.15)] - 条纹颜色
+/// @param {Degree} $angle [45deg] - 条纹旋转角度
+/// @group gradient
+@mixin m-gradient-striped($color: rgba(255,255,255,.15), $angle: 45deg) {
+  background-image: linear-gradient($angle, $color 25%, transparent 25%, transparent 50%, $color 50%, $color 75%, transparent 75%, transparent);
+}
