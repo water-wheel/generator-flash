@@ -1,0 +1,27 @@
+@import '~scss/_mixins';
+.footer-bar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+    align-items: center;
+
+    >a {
+        display: block;
+        flex: 1;
+        height: 40px;
+        line-height: 40px;
+        background-color: #4ea5ad;
+        text-align: center;
+        text-decoration: none;
+        color: #fff;
+
+    }
+
+    .selected {
+        color: #000;
+    }
+
+}

@@ -1,0 +1,79 @@
+{
+    "name": "flash-<%= name %>",
+    "version": "<%= version %>",
+    "author": {
+        "name": "<%= author %>",
+        "email": "<%= email %>"
+    },
+    "repository": {
+        "type": "git",
+        "url": "http://gitlab.<your site>.com/groups/<%= groupName %>/<%= name %>"
+    },
+    "group": "<%= groupName %>",
+    "type": "<%= frameType %>",
+    "keywords": [
+        "flash",
+        "react",
+        "reactsfc",
+        "<%= name %>"
+    ],
+    "main": "lib/index.js",
+    "dependencies": {
+        "classnames": "^2.2.5",
+        "pinkie-promise": "^2.0.1",
+        "promise": "8.0.1",
+        "prop-types": "^15.5.10",
+        "react": "^15.6.1",
+        "react-dom": "^15.6.1",
+        "whatwg-fetch": "2.0.3"
+    },
+    "scripts": {
+        "start": "flash-component-scripts start",
+        "build": "flash-component-scripts build",
+        "test": "flash-component-scripts test --env=jsdom"
+    },
+    "jest": {
+        "collectCoverageFrom": [
+            "src/**/*.{js,jsx}"
+        ],
+        "setupFiles": [
+            "<rootDir>/config/polyfills.js"
+        ],
+        "testMatch": [
+            "<rootDir>/**/__tests__/**/*.js?(x)",
+            "<rootDir>/src/**/?(*.)(spec|test).js?(x)"
+        ],
+        "testEnvironment": "node",
+        "testURL": "http://localhost",
+        "transform": {
+            "^.+\\.(js|jsx)$": "<rootDir>/node_modules/babel-jest",
+            "^.+\\.css$": "<rootDir>/config/jest/cssTransform.js",
+            "^(?!.*\\.(js|jsx|css|json)$)": "<rootDir>/config/jest/fileTransform.js"
+        },
+        "transformIgnorePatterns": [
+            "[/\\\\]node_modules[/\\\\].+\\.(js|jsx)$"
+        ],
+        "moduleNameMapper": {
+            "^react-native$": "react-native-web"
+        },
+        "moduleFileExtensions": [
+            "web.js",
+            "js",
+            "json",
+            "web.jsx",
+            "jsx",
+            "node"
+        ]
+    },
+    "eslintConfig": {
+        "extends": "react-app"
+    },
+    "devDependencies": {
+        "flash-component-scripts": "^0.0.2",
+        "enzyme": "^2.9.1",
+        "flash-flexible": "^0.0.1",
+        "sinon": "^3.2.1",
+        "object-assign": "4.1.1"
+    },
+    "proxy": "http://localhost:3001/"
+}

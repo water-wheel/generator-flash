@@ -5,11 +5,11 @@
   "authors": [
     {
       "name": "David Feng",
-      "email": "946401639@qq.com",
+      "email": "sublime3@163.com",
       "url": ""
     }],
   "files": [
-    "app", "component", "project", "_libs"
+    "app", "component", "project", "common", "_libs"
   ],
   "main": "app/index.js",
   "keywords": [

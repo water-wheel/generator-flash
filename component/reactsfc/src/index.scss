@@ -1,0 +1,10 @@
+@charset "UTF-8";
+
+@import '~scss/_mixins';
+
+.btn{
+    color: red;
+    &.active{
+        color: blue;
+    }
+}

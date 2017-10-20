@@ -1,0 +1,82 @@
+{
+    "name": "<%= name %>",
+    "version": "<%= version %>",
+    "private": true,
+    "author": {
+        "name": "<%= author %>",
+        "email": "<%= email %>"
+    },
+    "repository": {
+        "type": "git",
+        "url": "http://gitlab.<your site>.com/groups/<%= groupName %>/<%= name %>"
+    },
+    "group": "<%= groupName %>",
+    "type": "<%= frameType %>",
+    "keywords": [
+        "flash",
+        "react",
+        "<%= name %>"
+    ],
+    "dependencies": {
+        "classnames": "^2.2.5",
+        "history": "^3.3.0",
+        "json-server": "^0.12.0",
+        "flash-toast": "^0.0.2",
+        "flash-loading": "^0.0.2",
+        "pinkie-promise": "^2.0.1",
+        "prop-types": "^15.5.10",
+        "react": "15.6.1",
+        "react-dom": "15.6.1",
+        "react-router": "3.0.5",
+        "whatwg-fetch": "2.0.3"
+    },
+    "scripts": {
+        "start": "flash-scripts start",
+        "build": "flash-scripts build",
+        "test": "flash-scripts test --env=jsdom",
+        "mock": "flash-scripts mock"
+    },
+    "jest": {
+    "collectCoverageFrom": [
+        "src/**/*.{js,jsx}"
+    ],
+    "setupFiles": [
+        "<rootDir>/config/polyfills.js"
+    ],
+    "testMatch": [
+        "<rootDir>/src/**/__tests__/**/*.js?(x)",
+        "<rootDir>/src/**/?(*.)(spec|test).js?(x)"
+    ],
+    "testEnvironment": "node",
+    "testURL": "http://localhost",
+    "transform": {
+        "^.+\\.(js|jsx)$": "<rootDir>/node_modules/babel-jest",
+        "^.+\\.css$": "<rootDir>/config/jest/cssTransform.js",
+        "^(?!.*\\.(js|jsx|css|json)$)": "<rootDir>/config/jest/fileTransform.js"
+    },
+    "transformIgnorePatterns": [
+        "[/\\\\]node_modules[/\\\\].+\\.(js|jsx)$"
+    ],
+    "moduleNameMapper": {
+        "^react-native$": "react-native-web"
+    },
+    "moduleFileExtensions": [
+        "web.js",
+        "js",
+        "json",
+        "web.jsx",
+        "jsx",
+        "node"
+    ]
+    },
+    "eslintConfig": {
+        "extends": "react-app"
+    },
+    "devDependencies": {
+        "flash-scripts": "^0.0.3",
+        "flash-flexible": "^0.0.1",
+        "object-assign": "4.1.1",
+        "promise": "8.0.1"
+    },
+    "proxy": "http://localhost:3001/"
+}

@@ -5,14 +5,15 @@
 - node ^6.x
 
 ### make happy
-######step1
+
+#####step1
 ```
 npm install -g yo generator-flash
 ```
-######step2
+#####step2
 ```
 yo flash
 ```
 
 ### issue
-- email: 946401639@qq.com
+- email: sublime3@163.com

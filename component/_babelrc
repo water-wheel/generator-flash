@@ -1,0 +1,9 @@
+{
+  "presets": [
+	["env", {
+
+	}],
+    "react-app"
+  ],
+  "plugins": ["add-module-exports"]
+}

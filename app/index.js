@@ -28,12 +28,12 @@ module.exports = class extends Generator {
             message: '你准备创建',
             choices: [{
 
-                name: '项目(yo earth:project)',
+                name: '项目(yo flash:project)',
                 value: 'project'
 
             }, {
 
-                name: '组件(yo earth:component)',
+                name: '组件(yo flash:component)',
                 value: 'component'
 
             }],
