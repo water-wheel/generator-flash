@@ -63,23 +63,6 @@ module.exports = class extends Generator {
         let folderName = path.basename(process.cwd());
         let prompts = [{
 
-        //     name: 'projectType',
-        //     message: '项目类型',
-        //     type: 'list',
-        //     choices: [{
-        //
-        //         name: 'H5',
-        //         value: 'h5'
-        //
-        //     },{
-        //
-        //         name: 'PC',
-        //         value: 'pc'
-        //
-        //     }]
-        //
-        // }, {
-
             name: 'frameType',
             message: '框架选型',
             type: 'list',
@@ -248,7 +231,7 @@ module.exports = class extends Generator {
                     outPutUrl + '.babelrc'
                 );
 
-                //add scss
+                //add scss 语法糖
                 this.fs.copyTpl(
                     this.templatePath(`../../common/scss_mixin`),
                     `${outPutUrl}src/scss_mixin/`
