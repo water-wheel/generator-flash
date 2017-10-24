@@ -115,8 +115,8 @@
 #### 隐藏功能get😉
 - mock数据功能 可以提供给你更好的前后端分离力能 （mock数据服务器地址配置默认在 package.json 中 proxy）
 - 新增页面 只需要在/src/pages/ 下新建和index平级的目录 并且/public/ 下新建同名的 html 页面即可，无需多余配置
-- 天然的支持 antd && antd-mobile
-- scss_mixin 和 utils 语法糖，甜的你不要不要的
+- 天然的支持 antd && antd-mobile  无需多余的配置
+- 内置scss_mixin 和 utils 语法糖，甜的你不要不要的 （自行查看代码探索哈）
 
 #### 黑科技get😉
 - 目录结构树的生成：建议使用tree （`npm install -g tree-cli`）
